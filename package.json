@@ -1,0 +1,29 @@
+{
+  "name": "shopit",
+  "version": "1.0.0",
+  "description": "full ecommerce site using mern ",
+  "main": "server.js",
+  "scripts": {
+    "start": "SET node backend/server.js",
+    "dev" : "SET NODE_ENV=DEVELOPMENT& nodemon backend/server",
+    "prod" : "SET NODE_ENV=PRODUCTION& nodemon backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarah19990/SHOPIT.git"
+  },
+  "author": "Sarah Ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarah19990/SHOPIT/issues"
+  },
+  "homepage": "https://github.com/sarah19990/SHOPIT#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
