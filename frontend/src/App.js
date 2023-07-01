@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -18,12 +18,14 @@ import NewPassword from './components/user/NewPassword'
 import Cart from './components/cart/Cart'
 import Shipping from './components/cart/Shipping'
 import ConfirmOrder from './components/cart/ConfirmOrder'
+import axios from 'axios'
+import Payment from './components/cart/Payment'
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 
 function App() {
 
-  useEffect(() => {
-    store.dispatch(loadUser())
-  }, [])
+  const stripePromise = loadStripe('pk_test_51NNti0B50YBUpUhnMGUA1gxOt5Kuoe0f4trViTsh6DxVcGC5c2Z2m0aBBM3rH7dwDdItfLBIH8yxT5wg7MBA77Yy00gDvtHVIj');  
 
   return (
     <Router>
@@ -37,6 +39,9 @@ function App() {
       <Route path="/cart" component={Cart} exact />
       <ProtectedRoute path="/shipping" component={Shipping} />
       <ProtectedRoute path="/confirm" component={ConfirmOrder} exact />
+            <Elements stripe={stripePromise}>
+              <ProtectedRoute path="/payment" component={Payment} />
+            </Elements>
 
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />

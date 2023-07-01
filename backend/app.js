@@ -20,6 +20,8 @@ const auth = require('./routes/auth');
 
 const order = require('./routes/order');
 
+const payment = require('./routes/payment');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/v1', products)
@@ -27,6 +29,8 @@ app.use('/api/v1', products)
 app.use('/api/v1', auth)
 
 app.use('/api/v1', order)
+
+app.use('/api/v1', payment)
 
 app.use(errorMiddleware);
 

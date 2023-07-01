@@ -33,6 +33,7 @@
     "nodemailer": "^6.9.2",
     "react-alert": "^7.0.2",
     "react-alert-template-basic": "^1.0.0",
+    "stripe": "^8.128.0",
     "validator": "^13.9.0"
   },
   "devDependencies": {
