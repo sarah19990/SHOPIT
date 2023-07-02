@@ -18,12 +18,16 @@ import NewPassword from './components/user/NewPassword'
 import Cart from './components/cart/Cart'
 import Shipping from './components/cart/Shipping'
 import ConfirmOrder from './components/cart/ConfirmOrder'
-import axios from 'axios'
 import Payment from './components/cart/Payment'
+import OrderSuccess from './components/cart/OrderSuccess'
+import ListOrders from './components/order/ListOrders'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
+import OrderDetails from './components/order/OrderDetails'
+
 
 function App() {
+ 
 
   const stripePromise = loadStripe('pk_test_51NNti0B50YBUpUhnMGUA1gxOt5Kuoe0f4trViTsh6DxVcGC5c2Z2m0aBBM3rH7dwDdItfLBIH8yxT5wg7MBA77Yy00gDvtHVIj');  
 
@@ -39,6 +43,7 @@ function App() {
       <Route path="/cart" component={Cart} exact />
       <ProtectedRoute path="/shipping" component={Shipping} />
       <ProtectedRoute path="/confirm" component={ConfirmOrder} exact />
+      <ProtectedRoute path="/success" component={OrderSuccess} />
             <Elements stripe={stripePromise}>
               <ProtectedRoute path="/payment" component={Payment} />
             </Elements>
@@ -50,6 +55,9 @@ function App() {
       <ProtectedRoute path="/me" component={Profile} exact />
       <ProtectedRoute path="/me/update" component={UpdateProfile} exact />
       <ProtectedRoute path="/password/update" component={UpdatePassword} exact />
+
+      <ProtectedRoute path="/orders/me" component={ListOrders} exact />
+      <ProtectedRoute path="/order/:id" component={OrderDetails} exact />
       </div>
       <Footer />
     </div>

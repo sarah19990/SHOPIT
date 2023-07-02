@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'backend/config/config.env' })
+
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser')
 
@@ -33,5 +35,6 @@ app.use('/api/v1', order)
 app.use('/api/v1', payment)
 
 app.use(errorMiddleware);
+
 
 module.exports = app

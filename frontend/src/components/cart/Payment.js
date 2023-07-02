@@ -51,7 +51,8 @@ const Payment = ({ history }) => {
 
             const config = {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'sk_test_51NNti0B50YBUpUhnzsZWY707WV9nH35974TDQA18bcnYK5otDvqcFqaMnGyuEqthSB9Z66TFmDgXXHMknS4jkr9i00UfQcG5AA'
                 }
             }
 
@@ -90,6 +91,7 @@ const Payment = ({ history }) => {
         } catch (error) {
             document.querySelector('#pay_btn').disabled = false;
             alert.error(error.response.data.message)
+
         }
     }
             
